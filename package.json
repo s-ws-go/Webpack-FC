@@ -1,0 +1,21 @@
+{
+  "name": "practice-module_webpack",
+  "version": "1.0.0",
+  "description": "",
+  "main": "webpack.config.js",
+  "dependencies": {
+    "normalize.css": "^8.0.1",
+    "webpack": "^5.28.0",
+    "webpack-cli": "^4.6.0"
+  },
+  "devDependencies": {
+    "css-loader": "^5.2.0",
+    "html-webpack-plugin": "^5.3.1",
+    "style-loader": "^2.0.0"
+  },
+  "scripts": {
+    "start": "webpack"
+  },
+  "author": "sws",
+  "license": "ISC"
+}
