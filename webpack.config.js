@@ -37,9 +37,11 @@ const config = {
   },
   //플러그인 반영 해 주면서 index.html 파일명을 template.html 로 이름 변경
   //실행하면, dist 폴더 안에 template.html 파일의 내용이 반영 된 index.html이라는 파일이 생성됨
-  plugins: new HTMLWebpackPlugin({
-    template: "./template.html",
-  }),
+  plugins: [
+    new HTMLWebpackPlugin({
+      template: "./template.html",
+    }),
+  ],
   ///
   target: "node",
   mode: "none",

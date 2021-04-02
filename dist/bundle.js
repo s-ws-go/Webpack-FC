@@ -15,10 +15,10 @@ __webpack_require__.r(__webpack_exports__);
 
             
 
-var options = {};
+var options = {"injectType":"singletonStyleTag"};
 
 options.insert = "head";
-options.singleton = false;
+options.singleton = true;
 
 var update = _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_css_loader_dist_cjs_js_ruleSet_1_rules_0_use_1_normalize_css__WEBPACK_IMPORTED_MODULE_1__.default, options);
 
@@ -404,10 +404,10 @@ __webpack_require__.r(__webpack_exports__);
 
             
 
-var options = {};
+var options = {"injectType":"singletonStyleTag"};
 
 options.insert = "head";
-options.singleton = false;
+options.singleton = true;
 
 var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_0_use_1_index_css__WEBPACK_IMPORTED_MODULE_1__.default, options);
 
