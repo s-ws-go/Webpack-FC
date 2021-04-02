@@ -1,6 +1,7 @@
 import "normalize.css";
 // import "./index.css";
 import styles from "./index.css";
+import $ from "jquery";
 
 function component() {
   const element = document.createElement("div");
@@ -15,3 +16,5 @@ function component() {
 }
 
 document.body.appendChild(component());
+console.log($(`.${styles.helloWebpack}`).length);
+//vendor chunk 확인작업. webpack.config.js 파일의 optimization 객체에 splitChunks 추가(파일 참고)

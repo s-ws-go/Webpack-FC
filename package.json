@@ -4,6 +4,7 @@
   "description": "",
   "main": "webpack.config.js",
   "dependencies": {
+    "jquery": "^3.6.0",
     "mini-css-extract-plugin": "^1.4.0",
     "normalize.css": "^8.0.1",
     "webpack": "^5.28.0",
