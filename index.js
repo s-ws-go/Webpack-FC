@@ -5,7 +5,7 @@ import $ from "jquery";
 
 function component() {
   const element = document.createElement("div");
-  element.innerHTML = "Hello Webpack!";
+  element.innerHTML = "Hello Webpack!!, Why isnt this work????????";
 
   console.log(styles);
 

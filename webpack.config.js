@@ -4,6 +4,8 @@ const PATH = require("path");
 const HTMLWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
 
 const config = {
   entry: "./index.js",
@@ -91,11 +93,24 @@ const config = {
       meta: {
         viewport: "width=device-width, initial-scale=1.0",
       },
+      minify: {
+        collapseWhitespace: true,
+        useShortDoctype: true,
+        removeScriptTypeAttributes: true,
+      },
     }),
     //이 플러그인 넣어줌으로써 hash 들어간 번들js는 데이터가 수정되더라도 계속 한 파일로만 만들어 지게 됨
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
       filename: "[contenthash].css",
+    }),
+    new OptimizeCssAssetsPlugin({
+      assetNameRegExp: /\.css$/g,
+      cssProcessor: require("cssnano"),
+      cssProcessorPluginOptions: {
+        preset: ["default", { discardComments: { removeAll: true } }],
+      },
+      canPrint: true,
     }),
   ],
   optimization: {
@@ -112,6 +127,13 @@ const config = {
         },
       },
     },
+    minimize: true,
+    minimizer: [
+      new TerserPlugin({
+        //이렇게 옵션 적용하면 처리속도가 빨라짐(빌드 진행될때 파일 변화가 없으면 캐싱된 예전파일을 그대로 사용하여 빌드 시간을 줄여줌) but 작동안해서 주석처리
+        // cache: true,
+      }),
+    ],
   },
   ///
   target: "node",
