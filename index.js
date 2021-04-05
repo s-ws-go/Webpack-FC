@@ -16,5 +16,7 @@ function component() {
 }
 
 document.body.appendChild(component());
-console.log($(`.${styles.helloWebpack}`).length);
 //vendor chunk 확인작업. webpack.config.js 파일의 optimization 객체에 splitChunks 추가(파일 참고)
+console.log($(`.${styles.helloWebpack}`).length);
+
+console.log(`IS_PRODUCTION MODE : ${IS_PRODUCTION}`);

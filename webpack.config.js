@@ -139,5 +139,3 @@ const config = {
   target: "node",
   mode: "none",
 };
-
-module.exports = config;
