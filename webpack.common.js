@@ -19,7 +19,7 @@ const WEBPACK = require("webpack");
 // 내부 ENV로 접근 가능
 const isProduction = process.env.NODE_ENV === "PRODUCTION";
 
-const config = {
+module.exports = {
   entry: "./index.js",
   output: {
     path: PATH.resolve(__dirname, "dist"),
@@ -74,8 +74,20 @@ const config = {
         : false,
     }),
     new CleanWebpackPlugin(),
+    //각 모듈에서 프로덕션 모드를 감지할 수 있는 상속값 지정 __ 환경을 알 수 있는 변수인 isProduction 으로 변경(true or false)
     new WEBPACK.DefinePlugin({
-      IS_PRODUCTION: true,
+      IS_PRODUCTION: isProduction,
     }),
   ],
 };
+
+/*
+webpack-dev-server __ 로컬서버 지원
+node_modules 폴더 안의 .bin 폴더 안에서 실행, 실행 시 --config webpack.dev.js 뒤에 붙여서 실행
+-> 로컬서버 연결시 build 결과물이 파일로 쓰이지 않게 된다.(dist 폴더에 파일 생성 안됨)
+브라우저에서 로컬서버 주소창으로 직접 접속하여 결과물 확인 가능
+결과물이 메모리상에 있기 때문에 파일로 작업하는 것보다 더 빠르다.
+
+*웹팩 dev 서버에는 파일을 저장했을 때 결과물을 다시 감지하는 watch라는 설정이 지정되어 있음.&라이브 리로딩 환경 제공
+
+*/

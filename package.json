@@ -17,12 +17,13 @@
     "handlebars": "^4.7.7",
     "handlebars-loader": "^1.7.1",
     "html-webpack-plugin": "^5.3.1",
-    
     "style-loader": "^2.0.0",
     "terser-webpack-plugin": "^5.1.1",
+    "webpack-dev-server": "^3.11.2",
     "webpack-merge": "^5.7.3"
   },
   "scripts": {
+    "start": "NODE_ENV=DEVELOPMENT webpack-dev-server --config webpack.dev.js",
     "dev": "NODE_ENV=DEVELOPMENT webpack --config webpack.dev.js",
     "build": "NODE_ENV=PRODUCTION webpack --config webpack.prod.js"
   },
